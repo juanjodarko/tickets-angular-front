@@ -1,0 +1,36 @@
+<form (ngSubmit)="onNewUserCreate()" #f="ngForm">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>New user</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label class="sr-only" for="name">Name</label>
+				<input type="text" name="name" id="name" [(ngModel)]="user.name" placeholder="new user's name" required class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="email">Email</label>
+				<input type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="new user's email" required class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="roles">Role</label>
+				<select name="roles" class="form-control" [(ngModel)]="user.role">
+  					<option *ngFor="let role of roles" [ngValue]="role">{{role}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="password">Password</label>
+				<input type="password" name="password" id="password" [(ngModel)]="user.password" placeholder="new user's password" required class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="password_confirmation">Password Confirmation</label>
+				<input type="password" name="password_confirmation" id="password_confirmation" [(ngModel)]="user.password_confirmation" placeholder="new user's password confirmation" required class="form-control">
+			</div>
+			<div class="col-sm-12">
+				<button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="btn btn-primary">Create User</button>
+			</div>
+		</div>
+	</div>
+</form>

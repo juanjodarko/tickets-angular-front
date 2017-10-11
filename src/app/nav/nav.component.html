@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">CSTS</a>
+    </div>
+    <div class="navbar-default">
+      <ul class="nav navbar-nav" *ngIf="(authService.userSignedIn$ | async)">
+        <li><a href="#">Tickets</a></li>
+        <li *ngIf="isAdmin()"><a [routerLink]="['/users']">Users</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!(authService.userSignedIn$ | async)"><a [routerLink]="['/login']">Login</a></li>
+        <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
