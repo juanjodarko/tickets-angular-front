@@ -23,4 +23,14 @@ export class UserListComponent implements OnInit {
   	)
   }
 
+  onDeleteUser(value){
+  	if(confirm("Do you really want to erase user "+ value.name+ " ?")){
+  		this.authService.delete('users/'+value.id).map(res => res.json()).subscribe(
+  			res => {
+  				console.log(res);
+  			}
+  		)
+  	}
+  }
+
 }

@@ -5,7 +5,7 @@
     </div>
     <div class="navbar-default">
       <ul class="nav navbar-nav" *ngIf="(authService.userSignedIn$ | async)">
-        <li><a href="#">Tickets</a></li>
+        <li><a [routerLink]="['/tickets']">Tickets</a></li>
         <li *ngIf="isAdmin()"><a [routerLink]="['/users']">Users</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

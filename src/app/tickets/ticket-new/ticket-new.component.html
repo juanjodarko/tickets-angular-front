@@ -1,3 +1,23 @@
-<p>
-  ticket-new works!
-</p>
+<form (ngSubmit)="onTicketCreate()" #f="ngForm">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Open Ticket</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label class="sr-only" for="title">What's your main problem?</label>
+				<input type="text" name="title" id="title" [(ngModel)]="ticket.title" placeholder="What's your main problem?" required class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="description">Describe your problem at it's best</label>
+				<textarea ref-textarea class="form-control" rows="9" id="description" [(ngModel)]="ticket.description"></textarea>
+			</div>
+			
+			<div class="col-sm-12">
+				<button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="btn btn-primary">Leave it to us!</button>
+			</div>
+		</div>
+	</div>
+</form>

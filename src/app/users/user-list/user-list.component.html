@@ -12,14 +12,14 @@
       <tr>
         <th>Name</th>
         <th>Role</th>
-        <th>Edit</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
         <td>{{user.name}}</td>
         <td>{{user.role}}</td>
-        <td><a [routerLink]="['/users/edit/', user.id]" >EDIT<i class=""></i></a></td>
+        <td><button class="btn btn-sm btn-primary" [routerLink]="['/users/edit/', user.id]" >EDIT<i class=""></i></button> | <button class="btn btn-sm btn-danger" (click)="onDeleteUser(user)">DELETE</button></td>
       </tr>
     </tbody>
   </table>

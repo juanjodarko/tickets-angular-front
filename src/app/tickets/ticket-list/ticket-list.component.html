@@ -1,3 +1,30 @@
-<p>
-  ticket-list works!
-</p>
+<div class="container">
+  <div class="row">
+  	<div class="col-md-12">
+  		<div class="pull-right">
+  			<button type="button" class="btn btn-success btn-sm" [routerLink]="['/tickets/new']" >New Ticket</button>
+  		</div>
+  	</div>
+  </div>
+
+  <table class="table stiped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Customer</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets">
+        <td>{{ticket.title}}</td>
+        <td>{{ticket.status}}</td>
+        <td>{{ticket.customer.name}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/tickets/edit/', ticket.id]">EDIT<i class=""></i></button> | <button class="btn btn-sm btn-danger" >CLOSE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

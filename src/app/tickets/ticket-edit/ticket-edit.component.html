@@ -1,3 +1,26 @@
-<p>
-  ticket-edit works!
-</p>
+<form (ngSubmit)="onTicketUpdate()" #f="ngForm">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Answer Ticket</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h3>{{ticket.title}}</h3>
+			<p>{{ticket.description}}</p>
+			<hr>
+			<div class="form-group">
+				<input type="text" class="form-control" name="content" id="message" [(ngModel)]="message.content" placeholder="add information">
+			</div>
+			
+
+			<p class="alert alert-primary" *ngFor="let m of messages">{{m.content}}</p>
+
+			<!-- message -->
+			
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-primary">Answer this Ticket</button>
+			</div>
+		</div>
+	</div>
+</form>

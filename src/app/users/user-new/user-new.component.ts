@@ -32,7 +32,8 @@ export class UserNewComponent implements OnInit {
   onNewUserCreate(){
   	this.authService.post('users', {user: this.user}).map(res => res.json()).subscribe(
   		res => {
-  			if(res.status == 200)
+        console.log(res);
+  			if(res.status == undefined || res.status == null)
   				this.router.navigate(['/users']);
   		},
   		err => {

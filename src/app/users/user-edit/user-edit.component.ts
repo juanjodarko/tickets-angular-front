@@ -40,7 +40,7 @@ export class UserEditComponent implements OnInit {
   onUserUpdate(){
   	this.authService.put('users/'+this.id, {user: this.user}).map(res => res.json()).subscribe(
   		res => {
-  			if(res.status == 200)
+  			if(res.status == undefined || res.status == null)
   				this.router.navigate(['/users']);
   		},
   		err => {
